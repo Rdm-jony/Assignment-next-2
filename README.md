@@ -1,30 +1,31 @@
 ## 1.What is PostgreSQL?
 
-PostgresSQL is a powerful and open source relational database management system.
+PostgreSQL হচ্ছে একটি পাওয়ারফুল এবং  ওপেন সোর্স  রিলেশনশিপ ডাটাবেজ ম্যানেজমেন্ট সিস্টেম
 **Features:-**
- - ACID compliance
- - Support complex data types
- - JSON support
- - Strong data integrity
- - Fee & open source
+ - ACID সম্মতি
+ - সাপোর্ট কমপ্লেক্স  ডাটা টাইপ
+ - JSON সাপোর্ট
+ - স্ট্রং ডাটা  ইনটেগ্রিটি
+ - ফ্রি এবং ওপেন সোর্স
 
 ## 2.What is the purpose of a database schema in PostgreSQL?
 
-A schema is like a blueprint or a container that:
- - Organizes table,view and other database objects.
- - Define structured and relationships of data
- - Controll access and permission
- - Avoid name conflict bt grouping object
+একটি স্কিমা হচ্ছে ব্লু প্রিন্ট বা একটি কন্টেইনার  এর মত
+যা:
+ - বিভিন্ন  টেবল, ভিউ  এবং  অন্যান্য  অবজেক্ট কে  অর্গানাইজ করে
+ - ডাটার স্ট্রাকচার এবং রিলেশনশিপ ডিফাইন করে
+ - এক্সেস এবং পারমিশন কন্ট্রোল করে
+ - গ্রুপিং অবজেক্ট এর মাধ্যমে নেম(Name) কমপ্লিকট কে  এভোয়েড করে
 
 *IN short:*
-Helps to database organized,structured and secure.
+সহজ কথায় ডাটাবেজ কে অরগানাইজ, স্ট্রাকচার এবং সিকিউর করে
 
 ## 3.Explain the Primary Key and Foreign Key concepts in PostgreSQL.
 ### Primary Key
- - Column or set of column used to uniquely identify each row of a table.
- - Cannot conatin NULL values.
- - Must contain unique value.
- - Each table have one primary key.
+ - কলাম  বা  কলামের সেট যা  কোন টেবিলের প্রতিটা রো  কে ইউনিকভাবে আইডেন্টিফাই করতে ব্যবহার করা হয়
+ - নাল ভেলু রাখা যাবে না
+ - অবশ্যই ইউনিক ভেলু রাখতে হবে
+ - প্রত্যেকটি টেবিল একটি করে প্রাইমারি কি থাকে
 
 *Example*
 ```
@@ -44,9 +45,9 @@ CREATE TABLE employees (
 | 3  | Carol King              |Carol@gmail.com
 
 ### Foreign Key
- - Column or set of column used to connect two table
- - contain the primary key of another table
- - Create referntial integrity
+ - কলাম এবং কলামের সেট যা দুটি টেবিল কে  কানেক্ট করার জন্য ব্যবহার করা হয়
+ - অন্য কোন টেবিলের প্রাইমারি কি কে ফরেইন কি হিসেবে ব্যবহার করা হয় 
+ - রেফারেন্সিয়াল ইনটেগ্রিটি তৈরি করে
 
 *Example*
 ```
@@ -71,17 +72,18 @@ CREATE TABLE orders (
 |            VARCHAR       |               CHAR                   |
 |--------------------------|--------------------------------------|
 |Vaiable length chracter string|Fixed length charcter string|
-|Store actual length of data|Store always fixed length|
-|Use when string length varies a lot| Use when sirng length always same|
+|ডাটার একচুয়াল ল্যান্ত স্টোর করে|সব সময় ফিক্সড ল্যান্ত স্টোর করে|
+|ব্যবহার করা হয় যখন কোন একটি  বেরিয়েবল এর লেন্থ ভিন্ন ভিন্ন হয়| ব্যবহার করা হয় যখন বেরিয়েবল এর লেন্থ সব সময় সেম থাকে
+|
 |`'abc'` stored as 3 chars|`'abc'` stored as `'abc '` (if length defined as 4)
 
 ### 5.Explain the purpose of the WHERE clause in a SELECT statement.
-THE *WHERE* clause is *SELECT* statement used for filter rowa from a table based on specific conditions.
+ *SELECT* স্টেটমেন্টে *WHERE*  ক্লস ব্যবহার করা হয়, যখন কোন একটি টেবিলের প্রতিটা রোকে কন্ডিশনের ভিত্তিতে ফিল্টারিং করা হয়
 
 **Purpose**
- - It selects only those rows that meet the condition.
- - Rows that do not satisfy the condition are excluded from the result.
- - Helps retrieve specific data instead of all rows.
+ - টি শুধুমাত্র সেই রো গুলোকে  সিলেক্ট করে যা নির্দিষ্ট  কন্ডিশন পূরণ  করে.
+ - যে রো গুলো কন্ডিশন   পূরণ করে না, সে রো গুলোকে রেজাল্টের মধ্যে দেখানো হয় না
+ - একটি টেবিলের সব রো গুলোর পরিবর্তে নির্দিষ্ট সংখ্যক রোকে রিট্রিব  করে
 
 ***Example***
 ### 📄 Table: `Employee`
@@ -107,8 +109,8 @@ WHERE department = 'Sales';
 | Carol King  | 5500   |
 
 ### 6.What are the LIMIT and OFFSET clauses used for?
- - **LIMIT:** Return the specific maximum number of rows
- - **OFFSET:** Skips a specific rows before return the specific maximum number of rows.
+ - **LIMIT:** নির্দিষ্ট সংখ্যক রোকে রিটার্ন করে
+ - **OFFSET:** কতগুলো রোকে স্কিপ করার পর থেকে নির্দিষ্ট সংখ্যক রো কে  রিটার্নকরা হয়
 
  > Basically usefull for ***Pagination***
 
@@ -188,8 +190,9 @@ WHERE department = 'Sales';
 
 ### 8.What is the significance of the JOIN operation, and how does it work in PostgreSQL?
 
-The `JOIN` operation is used for combine two or more table based on related a related column.
->Usally a `Foreign Key` relationships
+দুটি টেবিলের রিলেটেড একটি কলাম কে নিয়ে দুটি টেবিল  কে কম্বাইন করার জন্য `JOIN` অপারেশন ব্যবহার করা হয়
+
+>সাধারণত একটি  `Foreign Key` রিলেশনশিপ
 
 ***Example***
 #### 📄 Table: `Employee`
@@ -233,7 +236,7 @@ JOIN orders ON employees.employee_id = orders.employee_id;
 
 ### 9. Explain the GROUP BY clause and its role in aggregation operations.
 
-The `GROUP BY` clause is used for **group rows** that have same value in one or more column and then preform aggregiate function like `COUNT()`,`MAX()`,`MIN()`,`AVG` etc.
+*GROUP BY*  ক্লস ব্যবহার করা হয় , টেবিলের একটি বা মাল্টিপল কলামের মধ্যে  যেসব রো এর ভেলু সেম  থাকে সেসব  রো কে নিয়ে  ইউনিক ভাবে গ্রুপ করা হয় এবং  কিছু এগ্রিগেট ফাংশনও পারফর্ম করা হয়  যেমন `COUNT()`,`MAX()`,`MIN()`,`AVG` etc.
 
 #### ✅ Purpose of GROUP BY:
  - To summarize or aggregate data.
